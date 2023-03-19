@@ -62,7 +62,7 @@ const userController = {
         
         {
             $push: {
-                friends: params.friendsId
+                friends: params.friendId
             }
         },
         
@@ -87,7 +87,7 @@ const userController = {
         
         {
             $pull: {
-                friends: params.friendsId
+                friends: params.friendId
             }
         },
         

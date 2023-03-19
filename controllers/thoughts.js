@@ -3,7 +3,7 @@ const thoughtsController = {
     allThoughts(req, res) {
         Thoughts.find({}).populate({
             path: 'reactions',
-            select: '-__v'
+            select: '__v'
         }).select('__v').sort({
             _id: -1
         }).then(dbThoughtsData => res.json(dbThoughtsData)).catch(err => res.status(400).json(err));
@@ -14,7 +14,7 @@ const thoughtsController = {
             _id: params.id
         }).populate({
             path: 'reactions',
-            select: '-__v'
+            select: '__v'
         }).select('__v').sort({
             _id: -1
         }).then(dbThoughtsData => {
@@ -118,7 +118,7 @@ const thoughtsController = {
 
     createReactions({ params, body }, res) {
         Thoughts.findOneAndUpdate({
-            _id: params.thoughtsId
+            _id: params.thoughtId
         },
         
         {
@@ -132,8 +132,8 @@ const thoughtsController = {
             runValidators: true
         }).populate({
             path: 'reactions',
-            select: '-__v'
-        }).select('-__v').then(dbThoughtsData => {
+            select: '__v'
+        }).select('__v').then(dbThoughtsData => {
             if (!dbThoughtsData) {
                 res.status(404).json({
                     message: 'No thoughts with this id was found'
@@ -147,13 +147,13 @@ const thoughtsController = {
 
     deleteReactions({ params }, res) {
         Thoughts.findOneAndUpdate({
-            _id: params.thoughtsId
+            _id: params.thoughtId
         },
         
         {
             $pull: {
                 reactions: {
-                    reactionsId: params.reactionsId
+                    reactionsId: params.reactionId
                 }
             }
         },

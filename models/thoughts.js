@@ -14,7 +14,7 @@ const reactionsSchema = new Schema(
             maxlength: 200
         },
 
-        reactionsId: {
+        reactionId: {
             type: Schema.Types.ObjectId,
             default: () => new Types.ObjectId()
         },
@@ -45,7 +45,7 @@ const thoughtsSchema = new Schema(
 
         reactions: [reactionsSchema],
 
-        thoughts: {
+        thoughtText: {
             type: String,
             required: true,
             minlength: 1,
