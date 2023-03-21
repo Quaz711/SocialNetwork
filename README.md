@@ -32,7 +32,15 @@
   none
   
   ## Images:
-  ![This is a gif showing how the application functions.](./assets/images/.gif)
+  ![This is a gif showing the first minute of requests.](./assets/images/First.gif)
+
+  ![This is a gif showing the second minute of requests.](./assets/images/Second.gif)
+
+  ![This is a gif showing the third minute of requests.](./assets/images/Third.gif)
+
+  ![This is a gif showing the fourth minute of requests.](./assets/images/Fourth.gif)
+
+  ![This is a gif showing the fifth minute of requests.](./assets/images/Fifth.gif)
 
   ## Walkthrough:
   Video of the application running
